@@ -19,8 +19,8 @@ songIndex = 1
 loadSong(songs[songIndex])
 function loadSong(song) {
   title.innerText = song
-  audio.src = `/Player/Music/${song}.mp3`
-  cover.src = `/Cover/${song}.jpeg`
+  audio.src = `./Player/Music/${song}.mp3`
+  cover.src = `./Cover/${song}.jpeg`
 }
 // function to play and stop the music
 
