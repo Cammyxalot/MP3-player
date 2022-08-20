@@ -1,22 +1,25 @@
-*{
-    box-sizing: border-box;
+@media only screen and (min-width: 400px){
+* {
+        box-sizing: border-box;
+    }
+
+:root {
+    --green: #00E076;
+    --blue: #00657C;
 }
 
-:root{
-    --green: #00E076;
-    --blue:#00657C;
-}
-body{
+body {
     height: 100vh;
     margin: 0;
     font-family: sans-serif;
-    background-image: linear-gradient(60deg,var(--blue),var(--green));
-    display:flex;
+    background-image: linear-gradient(60deg, var(--blue), var(--green));
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.music-container{
+
+.music-container {
     background-color: white;
     border-radius: 15px;
     box-shadow: 0 20px 20px 0 var(--green);
@@ -26,24 +29,14 @@ body{
     margin: 100px 0;
     z-index: 10;
 }
-.img-container{
+
+.img-container {
     position: relative;
     width: 110px;
 }
 
-.img-container::after {
-    content: '';
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-    bottom:90%;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    transform: translate(-50%, 50%);
-}
 
-.img-container img{
+.img-container img {
     border-radius: 50%;
     object-fit: cover;
     height: 110px;
@@ -55,39 +48,45 @@ body{
     animation-play-state: paused;
 }
 
-.music-container.play .img-container img{
+.music-container.play .img-container img {
     animation-play-state: running;
 }
 
-@keyframes rotate{
-    from{
-        transform: rotate(0deg)}
-        to{
-        transform: rotate(360deg)
-        }
+@keyframes rotate {
+    from {
+        transform: rotate(0deg)
     }
 
-.navigation{
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.navigation {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 250px;
+    flex-wrap: wrap;
 }
 
-.action-btn{
+.action-btn {
     background-color: white;
-    border:0;
+    border: 0;
     color: grey;
     cursor: pointer;
     padding: 10px;
-    margin: 0 20px;
+    margin: 0 20px 0 20px;
     font-size: 20px;
 }
-.action-btn:focus{
-    outline:0;
+
+.action-btn:focus {
+    outline: 0;
 }
-.action-btn-big{
+
+.action-btn-big {
     color: black;
-    font-size:30px;
+    font-size: 25px;
 }
 
 .music-info {
@@ -103,15 +102,18 @@ body{
     transition: transform 0.3s ease-in, opacity 0.3s ease-in;
     z-index: -1;
 }
-.music-container.play .music-info{
+
+.music-container.play .music-info {
     opacity: 1;
     transform: translateY(-100%);
 }
-.music-info h4{
+
+.music-info h4 {
     text-align: end;
     margin: 0;
 }
-.progress-container{
+
+.progress-container {
     background: white;
     border-radius: 5px;
     cursor: pointer;
@@ -120,10 +122,156 @@ body{
     width: 100%;
 }
 
-.progress{
+.progress {
     background-color: var(--blue);
     border-radius: 5px;
     height: 100%;
     width: 0%;
     transition: width 0.1s linear;
+}
+
+.volume-button {
+    margin: 10px 0 0 0;
+    width: 80%;
+}
+
+.volume-button[type=range]::-webkit-slider-runnable-track {
+    border-radius: 15px;
+    cursor: pointer;
+    background: var(--green)
+}
+}
+@media only screen and (max-width:400px){
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #00E076;
+    --blue: #00657C;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    background-image: linear-gradient(60deg, var(--blue), var(--green));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 20px 0 var(--green);
+    display: flex;
+    padding: 20px 30px;
+    position: relative;
+    margin: 100px 0;
+    z-index: 10;
+}
+
+.img-container {
+display: none;
+}
+
+
+.img-container img {
+    display: none;
+}
+
+.music-container.play .img-container img {
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 250px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    background-color: white;
+    border: 0;
+    color: grey;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px 0 20px;
+    font-size: 20px;
+}
+
+.action-btn:focus {
+    outline: 0;
+}
+
+.action-btn-big {
+    color: black;
+    font-size: 25px;
+}
+
+.music-info {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 10px 10px 10px 10px;
+    opacity: 0;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    z-index: -1;
+}
+
+.music-container.play .music-info {
+    opacity: 1;
+    transform: translateY(-100%);
+}
+
+.music-info h4 {
+    text-align: center;
+    margin: 0;
+}
+
+.progress-container {
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+}
+
+.progress {
+    background-color: var(--blue);
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.volume-button {
+    margin: 10px 0 0 0;
+    width: 80%;
+}
+
+.volume-button[type=range]::-webkit-slider-runnable-track {
+    border-radius: 15px;
+    cursor: pointer;
+    background: var(--green)
+}
 }

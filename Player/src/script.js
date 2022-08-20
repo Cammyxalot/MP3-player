@@ -5,6 +5,7 @@ const nextBtn = document.getElementById("next")
 const prevBtn = document.getElementById("prev")
 const progress = document.getElementById("progress")
 const progressContainer = document.getElementById("progress-container")
+const volumeBtn = document.getElementById("volume-button")
 const songs = [
   "Bloc Party - Helicopter",
   "Nedaj - Code",
@@ -93,4 +94,10 @@ prevBtn.addEventListener("click", () => {
     playBtn.querySelector("i.fas").classList.remove("fa-play")
     playBtn.querySelector("i.fas").classList.add("fa-pause")
   }
+})
+
+volumeBtn.addEventListener("input", () => {
+  // console.log(volumeBtn.value)
+  audio.volume = volumeBtn.value / 100
+  // console.log(audio.volume)
 })
