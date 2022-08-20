@@ -9,7 +9,7 @@ const volumeBtn = document.getElementById("volume-button")
 const songs = [
   "Bloc Party - Helicopter",
   "Nedaj - Code",
-  "No Pressure - Big man",
+  "No pressure - Big man",
   "Sticky Fingers - How to fly",
   "The Garden - California here we go",
   "The Garden - Sneaky devil",
